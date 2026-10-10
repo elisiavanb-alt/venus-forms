@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Family Medical History | Venus Egg Donation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- Jotform Custom Widget API (only active when this page runs inside your Jotform) -->
+<script src="https://js.jotform.com/JotFormCustomWidget.min.js"></script>
+<style>
+/*
+  BRAND SETTINGS
+  Kripa is the Venus brand font. If you host the Kripa font file, add an @font-face rule here, e.g.:
+  @font-face { font-family: "Kripa"; src: url("https://YOUR-SITE/fonts/Kripa.woff2") format("woff2"); font-display: swap; }
+  Colors: --peri is the light periwinkle from the logo. --brand is a deeper periwinkle used for text and buttons
+  so everything meets WCAG AA contrast on white.
+*/
+:root{
+  --font-head:"Kripa","Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --peri:#B9C3F2;
+  --peri-soft:#EEF1FD;
+  --peri-mid:#DCE1FA;
+  --brand:#4A55A8;
+  --brand-dark:#353F8C;
+  --text:#1E2238;
+  --muted:#4E546E;
+  --border:#C5CAE0;
+  --bg:#FFFFFF;
+  --danger:#B42318;
+  --danger-bg:#FEF3F2;
+  --success:#2F6B3E;
+  --radius:14px;
+  --focus:0 0 0 3px #FFFFFF,0 0 0 6px #353F8C;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:17px;line-height:1.5;-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+h1,h2,h3{font-family:var(--font-head);color:var(--text);line-height:1.25;margin:0}
+h1{font-size:1.6rem;margin:4px 0 14px}
+h1:focus{outline:none}
+h2{font-size:1.2rem;margin:28px 0 10px}
+h3{font-size:1.05rem}
+p{margin:0 0 12px}
+.eyebrow{font-size:.85rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);margin:0}
+.progress{height:8px;background:var(--peri-mid);border-radius:999px;overflow:hidden;margin:6px 0 4px}
+.progress span{display:block;height:100%;background:var(--brand);border-radius:999px;transition:width .25s}
+.lead{font-size:1.05rem;color:var(--text);font-weight:600;margin:4px 0 16px}
+.muted{color:var(--muted)}
+.hint{font-size:.9rem;color:var(--muted);margin:-2px 0 8px}
+.opt{font-weight:400;color:var(--muted);font-size:.9rem}
+.card-intro{background:var(--peri-soft);border:1px solid var(--peri-mid);border-radius:var(--radius);padding:18px;margin:8px 0 22px}
+
+/* Buttons */
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,.check input:focus-visible+span{outline:none;box-shadow:var(--focus)}
+.btn{min-height:48px;padding:10px 22px;border-radius:999px;border:2px solid var(--brand);background:var(--brand);color:#fff;font-weight:700;line-height:1.2}
+.btn:hover{background:var(--brand-dark);border-color:var(--brand-dark)}
+.btn.secondary{background:#fff;color:var(--brand)}
+.btn.secondary:hover{background:var(--peri-soft)}
+.btn[aria-disabled="true"]{background:#E4E6EF;border-color:#E4E6EF;color:#5B6078;cursor:not-allowed}
+.btn.block{width:100%}
+.btn.small{min-height:44px;padding:8px 16px;font-size:.95rem}
+.linkbtn{background:none;border:none;color:var(--brand);font-weight:700;text-decoration:underline;min-height:44px;padding:8px 4px}
+.linkbtn.danger{color:var(--danger)}
+.nav{display:flex;gap:12px;justify-content:space-between;margin-top:28px;padding-top:18px;border-top:1px solid var(--border)}
+.nav .btn{flex:1}
+
+/* Pills */
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{flex:1 1 0;min-width:84px;min-height:44px;padding:8px 12px;border-radius:999px;border:2px solid var(--border);background:#fff;color:var(--text);font-weight:600;line-height:1.2}
+.pill:hover{border-color:var(--brand)}
+.pill.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.pills.stack{flex-direction:column}
+.pills.stack .pill{flex:none;width:100%;text-align:left;border-radius:12px;padding:12px 16px}
+.pills.wrap .pill{flex:0 1 auto}
+.pill .tick{display:none}
+.pill.on .tick{display:inline}
+
+/* Fields */
+.q{margin:0 0 18px}
+.q-label{display:block;font-weight:700;margin:0 0 8px}
+input[type=text],input[type=number],select,textarea{width:100%;min-height:48px;padding:10px 14px;border:2px solid var(--border);border-radius:12px;font-family:inherit;font-size:1rem;color:var(--text);background:#fff}
+textarea{min-height:96px;resize:vertical}
+input:disabled{background:#F2F3F8;color:#6B7088}
+input:focus,select:focus,textarea:focus{border-color:var(--brand)}
+.check{display:flex;align-items:flex-start;gap:12px;min-height:44px;padding:10px 0;cursor:pointer;font-weight:600}
+.check input{width:24px;height:24px;margin:0;flex:none;accent-color:var(--brand);margin-top:1px}
+.row-num{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.row-num input[type=number]{max-width:140px}
+
+/* Relative cards */
+.relcard{border:1px solid var(--border);border-radius:var(--radius);margin:0 0 10px;background:#fff}
+.relcard.missing{border-color:var(--danger)}
+.relhead{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:56px;padding:12px 16px;background:none;border:none;text-align:left;color:var(--text);border-radius:var(--radius)}
+.relhead .t{font-weight:800}
+.relhead .s{display:block;font-size:.9rem;color:var(--muted);font-weight:600}
+.relhead .s.todo{color:var(--danger)}
+.chev{flex:none;width:12px;height:12px;border-right:3px solid var(--brand);border-bottom:3px solid var(--brand);transform:rotate(45deg);margin-right:4px;transition:transform .2s}
+.relhead[aria-expanded="true"] .chev{transform:rotate(-135deg)}
+.relbody{padding:4px 16px 12px;border-top:1px solid var(--peri-mid)}
+.group-label{font-weight:800;margin:22px 0 10px;color:var(--brand-dark)}
+
+/* Conditions */
+.noall{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;border-radius:12px;border:2px dashed var(--brand);background:var(--peri-soft);color:var(--brand-dark);font-weight:800;margin:4px 0 12px}
+.noall[aria-pressed="true"]{border-style:solid;background:var(--brand);color:#fff}
+.counter{font-weight:700;color:var(--muted);margin:0 0 14px}
+.cond{border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin:0 0 12px;background:#fff}
+.cond.unanswered{border-color:var(--danger);background:var(--danger-bg)}
+.cond-label{font-weight:700;margin:0 0 10px}
+.panel{margin-top:14px;padding:14px;border-radius:12px;background:var(--peri-soft);border:1px solid var(--peri-mid)}
+.entry{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px;margin:0 0 12px}
+.entry .pill{min-width:0;padding:8px 10px;font-size:.95rem}
+.entry-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 10px}
+.entry-head h3{font-size:1rem;color:var(--brand-dark)}
+.gentle{font-size:.95rem;color:var(--muted);margin:0 0 12px}
+.alert{border-radius:12px;padding:14px 16px;margin:14px 0;font-weight:600}
+.alert.warn{background:var(--danger-bg);border:1px solid #F4C7C3;color:#7A1A12}
+.alert.info{background:var(--peri-soft);border:1px solid var(--peri-mid);color:var(--text)}
+.alert.ok{background:#EEF7F0;border:1px solid #BFDCC6;color:var(--success)}
+.alert ul{margin:8px 0 0;padding-left:20px}
+.alert li{margin:4px 0}
+.alert a,.review a{color:inherit}
+
+/* Review */
+.rsec{border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin:0 0 12px}
+.rsec-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rsec-head h3{font-size:1rem}
+.rsec ul{margin:8px 0 0;padding-left:20px}
+.rsec li{margin:6px 0}
+.rmiss{color:var(--danger);font-weight:700}
+.tag{display:inline-block;font-size:.8rem;font-weight:800;padding:2px 8px;border-radius:999px;background:var(--peri-mid);color:var(--brand-dark);margin-right:6px}
+.tag.unsure{background:#FFF4D6;color:#6B4A00}
+.footnote{font-size:.9rem;color:var(--muted);margin-top:18px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+@media (min-width:600px){main{padding-top:28px}h1{font-size:1.9rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="top"></div>
+<main id="app"></main>
+<div id="live" class="sr-only" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     CONFIGURATION
+     SUBMISSION_ENDPOINT_URL is only used when this page is opened
+     on its own (outside Jotform). Inside Jotform, answers are saved
+     straight into your HIPAA Jotform submission instead.
+     ========================================================= */
+  var SUBMISSION_ENDPOINT_URL = 'SUBMISSION_ENDPOINT_URL';
+  var STORAGE_KEY = 'venus_fmh_v1';
+  var TOTAL = 17;
+
+  var IN_JOTFORM = (function () {
+    var framed;
+    try { framed = window.self !== window.top; } catch (e) { framed = true; }
+    return framed && typeof window.JFCustomWidget !== 'undefined';
+  })();
+
+  /* ---------------- Option lists ---------------- */
+  var YNU = [['yes', 'Yes'], ['no', 'No'], ['unsure', 'Unsure']];
+  var KNOWLEDGE = [['most', 'I know most of it'], ['some', 'I know some of it'], ['little', 'I know very little or none (for example, adopted or no contact)']];
+  var VITAL = [['living', 'Living'], ['deceased', 'Deceased'], ['unknown', 'Unknown']];
+  var SIDE = [['maternal', 'Maternal'], ['paternal', 'Paternal']];
+  var AUREL = [['aunt', 'Aunt'], ['uncle', 'Uncle']];
+  var RELATIVES = [
+    ['mother', 'Mother'], ['father', 'Father'], ['full_sibling', 'Full sibling'],
+    ['maternal_half_sibling', 'Maternal half-sibling'], ['paternal_half_sibling', 'Paternal half-sibling'],
+    ['maternal_grandmother', 'Maternal grandmother'], ['maternal_grandfather', 'Maternal grandfather'],
+    ['paternal_grandmother', 'Paternal grandmother'], ['paternal_grandfather', 'Paternal grandfather'],
+    ['maternal_aunt_uncle', 'Maternal aunt/uncle'], ['paternal_aunt_uncle', 'Paternal aunt/uncle'],
+    ['maternal_cousin', 'Maternal cousin'], ['paternal_cousin', 'Paternal cousin'],
+    ['my_child', 'My child'], ['other', 'Other biological relative']
+  ];
+  var ANCESTRY = [
+    ['african', 'African / African American'], ['east_asian', 'East Asian'], ['south_asian', 'South Asian'],
+    ['southeast_asian', 'Southeast Asian'], ['mena', 'Middle Eastern / North African'], ['hispanic', 'Hispanic / Latino'],
+    ['ashkenazi', 'Ashkenazi Jewish'], ['sephardic_mizrahi', 'Sephardic / Mizrahi Jewish'],
+    ['french_canadian_cajun', 'French Canadian / Cajun'], ['northern_european', 'Northern European'],
+    ['southern_european', 'Southern European'], ['eastern_european', 'Eastern European'],
+    ['pacific_islander', 'Pacific Islander'], ['native_american', 'Native American / Indigenous'],
+    ['mixed', 'Mixed'], ['unknown', 'Unknown'], ['other', 'Other']
+  ];
+  var AGEMODE = [['age', 'Enter age'], ['birth', 'Present at birth'], ['unknown', 'Unknown']];
+  var AGEMODE_GENTLE = [['age', 'Enter age'], ['unknown', 'Unknown']];
+  var CAUSE = [['genetic', 'Genetic / inherited'], ['birth', 'Present at birth'], ['later', 'Developed later from another cause'], ['unknown', 'Unknown']];
+  var STATUS_L = [['living_with', 'Living with condition'], ['deceased', 'Deceased'], ['unknown', 'Unknown']];
+  var STATUS_T = [['current', 'Currently affected or in treatment'], ['remission', 'Treatment completed / in remission'], ['recovered', 'Recovered'], ['deceased', 'Deceased'], ['unknown', 'Unknown']];
+  var ONSET = [['birth', 'Present at birth'], ['later', 'Developed later'], ['unsure', 'Unsure']];
+  var EYES = [['one', 'One eye'], ['both', 'Both eyes'], ['unsure', 'Unsure']];
+  var EARS = [['one', 'One ear'], ['both', 'Both ears'], ['unsure', 'Unsure']];
+  var CLEFT = [['lip', 'Lip only'], ['palate', 'Palate only'], ['both', 'Both'], ['unsure', 'Unsure']];
+  var CANCERCOUNT = [['only', 'Only cancer'], ['multiple', 'More than one separate cancer'], ['unsure', 'Unsure']];
+  var BREAST = [['one', 'One breast'], ['both', 'Both breasts'], ['unsure', 'Unsure']];
+
+  function lbl(list, v) { for (var i = 0; i < list.length; i++) if (list[i][0] === v) return list[i][1]; return v || ''; }
+
+  /* ---------------- Condition groups (Sections 2-15) ----------------
+     Format: "Label|flags". Flags: L = LIFELONG, T = TREATABLE (overrides the group default),
+     onset, eyes, ears, cleft, cancer, breast, deathAge, mental, gentle. */
+  var GROUP_DEFS = [
+    { id: 'congenital', title: 'Congenital Conditions & Birth Defects', q: 'Was anyone in your biological family born with any of the following?', def: 'L', items: [
+      'Cleft lip|cleft', 'Cleft palate|cleft', 'Congenital heart defect (heart problem present at birth)', 'Spina bifida',
+      'Anencephaly or another neural tube defect', 'Clubfoot', 'Missing fingers, toes, arms, or legs',
+      'Extra fingers or toes (polydactyly)', 'Fused or webbed fingers or toes (syndactyly)', 'Congenital hip dysplasia',
+      'Abnormal skull shape or early skull fusion (craniosynostosis)', 'Unusually small or large head size (microcephaly / macrocephaly)',
+      'Kidney or urinary tract abnormality present at birth',
+      'Digestive tract abnormality present at birth (for example, esophageal or intestinal malformation)',
+      'Reproductive organ abnormality present at birth', 'Diaphragmatic hernia', 'Other facial differences present at birth',
+      'Multiple birth defects or a diagnosed congenital syndrome', 'Other birth defect not listed'] },
+    { id: 'vision', title: 'Vision & Eye Conditions', q: 'Has anyone in your biological family had any of the following?', def: 'L', items: [
+      'Blindness present at birth|onset,eyes', 'Blindness beginning in childhood|onset,eyes', 'Progressive or unexplained vision loss|onset,eyes',
+      'Retinitis pigmentosa', 'Other inherited retinal disease', 'Cataracts present at birth or in childhood|T', 'Glaucoma in childhood|T',
+      'Optic nerve hypoplasia or optic atrophy', 'Severe nearsightedness beginning in childhood', 'Strabismus (crossed or misaligned eyes)|T',
+      'Color blindness', 'Other inherited eye or vision condition'] },
+    { id: 'hearing', title: 'Hearing & Ear Conditions', q: 'Has anyone in your biological family had any of the following?', def: 'L', items: [
+      'Deafness present at birth|onset,ears', 'Hearing loss beginning in childhood|onset,ears', 'Progressive or unexplained hearing loss|onset,ears',
+      'Deafness in one ear|onset', 'Inner ear abnormality present at birth', 'Usher syndrome', 'Waardenburg syndrome', 'Other inherited hearing condition'] },
+    { id: 'genetic', title: 'Genetic & Chromosomal Conditions', q: 'Has anyone in your biological family been diagnosed with any of the following?', def: 'L', items: [
+      'Down syndrome', 'Turner syndrome', 'Klinefelter syndrome', 'Fragile X syndrome or Fragile X premutation',
+      'Chromosome deletion or duplication (for example, 22q11 deletion)', 'Balanced chromosome translocation or inversion',
+      'Cystic fibrosis', 'Tay-Sachs disease', 'Huntington disease', 'Neurofibromatosis', 'Tuberous sclerosis', 'Phenylketonuria (PKU)',
+      'Gaucher disease', 'Wilson disease', 'Other inherited metabolic disorder', 'Other diagnosed genetic or chromosomal condition'] },
+    { id: 'neuro', title: 'Neurological & Neuromuscular Conditions', q: 'Has anyone in your biological family been diagnosed with any of the following?', def: 'L', items: [
+      'Epilepsy or recurring seizures|T', 'Cerebral palsy', 'Multiple sclerosis', 'Parkinson disease', 'Alzheimer disease',
+      'Dementia beginning before age 65', "ALS (Lou Gehrig's disease)", 'Spinal muscular atrophy (SMA)', 'Duchenne or Becker muscular dystrophy',
+      'Myotonic dystrophy', 'Other muscular dystrophy', 'Inherited peripheral neuropathy (for example, Charcot-Marie-Tooth)',
+      'Ataxia or progressive movement disorder', 'Hydrocephalus', 'Unexplained progressive muscle weakness', 'Other significant neurological condition'] },
+    { id: 'developmental', title: 'Developmental, Intellectual & Learning Conditions', q: 'Has anyone in your biological family been diagnosed with any of the following?', def: 'L', items: [
+      'Autism spectrum disorder', 'ADHD', 'Intellectual disability', 'Global developmental delay', 'Significant speech or language disorder',
+      'Dyslexia or another diagnosed learning disability', 'Loss of previously learned skills in childhood (developmental regression)',
+      'Other diagnosed neurodevelopmental condition'] },
+    { id: 'mental', title: 'Mental & Behavioral Health', q: 'Has anyone in your biological family been diagnosed with or experienced any of the following?', def: 'T', items: [
+      'Major depression|mental', 'Bipolar disorder (type I or II)|mental', 'Schizophrenia|mental', 'Schizoaffective disorder|mental',
+      'Generalized anxiety disorder or panic disorder|mental', 'Obsessive-compulsive disorder (OCD)|mental', 'Post-traumatic stress disorder (PTSD)|mental',
+      'Anorexia, bulimia, or another eating disorder|mental', 'Alcohol use disorder|mental', 'Drug or substance use disorder|mental',
+      'Suicide attempt|gentle', 'Death by suicide|gentle', 'Other diagnosed psychiatric condition|mental'] },
+    { id: 'heart', title: 'Heart & Circulation', q: 'Has anyone in your biological family had any of the following?', def: 'T', items: [
+      'Cardiomyopathy (enlarged, thickened, or weakened heart muscle)', 'Long QT syndrome or another inherited heart rhythm disorder',
+      'Sudden unexplained cardiac death|deathAge', 'Heart attack before age 55 (men) or 65 (women)', 'Stroke before age 55',
+      'Aortic aneurysm or aortic dissection', 'Inherited blood-clotting disorder (for example, Factor V Leiden)', 'Repeated unexplained blood clots',
+      'Very high cholesterol from a young age (familial hypercholesterolemia)', 'High blood pressure before age 40', 'Other inherited or significant heart condition'] },
+    { id: 'cancer', title: 'Cancer & Tumors', q: 'Has anyone in your biological family been diagnosed with any of the following?', def: 'T', items: [
+      'Breast cancer|cancer,breast', 'Ovarian cancer|cancer', 'Colon or rectal cancer|cancer', 'Uterine or endometrial cancer|cancer',
+      'Pancreatic cancer|cancer', 'Prostate cancer|cancer', 'Thyroid cancer|cancer', 'Kidney cancer|cancer', 'Melanoma|cancer',
+      'Leukemia|cancer', 'Lymphoma|cancer', 'Brain tumor|cancer', 'Cancer diagnosed in childhood|cancer',
+      'More than one separate cancer in the same person', 'BRCA1 or BRCA2 mutation|L', 'Lynch syndrome|L',
+      'Other hereditary cancer syndrome|L', 'Other cancer not listed|cancer'] },
+    { id: 'blood_immune', title: 'Blood & Immune Conditions', q: 'Has anyone in your biological family been diagnosed with any of the following?', def: 'T', items: [
+      'Sickle cell disease|L', 'Sickle cell trait|L', 'Thalassemia or thalassemia trait|L', 'Other inherited anemia|L', 'Hemophilia|L',
+      'Von Willebrand disease or another inherited bleeding disorder|L', 'Primary immunodeficiency|L', 'Lupus', 'Rheumatoid arthritis', 'Other autoimmune condition'] },
+    { id: 'kidney_liver_digestive', title: 'Kidney, Liver & Digestive Conditions', q: 'Has anyone in your biological family been diagnosed with any of the following?', def: 'T', items: [
+      'Polycystic kidney disease|L', 'Other inherited kidney disease|L', 'Kidney failure before age 50', 'Inherited liver disease|L',
+      'Hemochromatosis (iron overload)|L', "Crohn's disease", 'Ulcerative colitis', 'Celiac disease|L', 'Hirschsprung disease|L',
+      'Other significant digestive condition'] },
+    { id: 'hormone_metabolic', title: 'Hormone & Metabolic Conditions', q: 'Has anyone in your biological family been diagnosed with any of the following?', def: 'T', items: [
+      'Type 1 diabetes|L', 'Type 2 diabetes', 'Thyroid problem present at birth (congenital hypothyroidism)|L', "Hashimoto's thyroiditis",
+      "Graves' disease", 'Congenital adrenal hyperplasia or another inherited adrenal disorder|L', 'Pituitary disorder',
+      'Other inherited hormone or metabolic condition|L'] },
+    { id: 'bone_skin_connective', title: 'Bone, Joint, Skin & Connective Tissue', q: 'Has anyone in your biological family been diagnosed with any of the following?', def: 'L', items: [
+      'Scoliosis requiring a brace or surgery|T', 'Achondroplasia, dwarfism, or another skeletal dysplasia', 'Osteogenesis imperfecta (brittle bone disease)',
+      'Ehlers-Danlos syndrome', 'Marfan syndrome', 'Other inherited connective tissue disorder', 'Albinism',
+      'Ichthyosis or another inherited skin condition', 'Other inherited bone or skin condition'] },
+    { id: 'pregnancy_patterns', title: 'Pregnancy, Reproduction & Unexplained Family Patterns', q: 'Has anyone in your biological family experienced any of the following?', def: 'T', items: [
+      'Two or more miscarriages', 'Stillbirth', 'Unexplained infant death, including SIDS|deathAge', 'Infertility caused by a known genetic condition',
+      'Early menopause or primary ovarian insufficiency (before age 40)', 'Pregnancy loss linked to a chromosome problem',
+      'Unexplained death before age 50|deathAge',
+      'Several relatives with the same unexplained condition (for example, blindness, deafness, or developmental problems)',
+      'A known disease-causing genetic variant, or a positive result on genetic carrier screening|L',
+      'Other significant inherited or unexplained family condition'] }
+  ];
+  var GROUPS = GROUP_DEFS.map(function (g, gi) {
+    g.section = gi + 2;
+    g.conds = g.items.map(function (s, i) {
+      var p = s.split('|'), type = g.def, ex = {};
+      if (p[1]) p[1].split(',').forEach(function (t) { if (t === 'L' || t === 'T') type = t; else ex[t] = true; });
+      return { id: g.id + '_' + (i + 1), n: i + 1, label: p[0], type: type, ex: ex };
+    });
+    return g;
+  });
+
+  function stepTitle(step) {
+    if (step === 1) return 'Your Biological Family';
+    if (step >= 2 && step <= 15) return GROUPS[step - 2].title;
+    if (step === 16) return 'Additional Questions';
+    if (step === 17) return 'Review & Confirm';
+    return 'Family Medical History';
+  }
+
+  /* ---------------- State ---------------- */
+  function blankRel(extra) {
+    var r = { status: '', age: '', ageUnknown: false, cause: '', causeUnknown: false, conditions: '', conditionsText: '' };
+    if (extra) for (var k in extra) r[k] = extra[k];
+    return r;
+  }
+  function blankEntry() {
+    return { relative: '', relativeOther: '', diagnosis: '', ageMode: '', age: '', cause: '', status: '', genTest: '', genTestResult: '', details: '',
+      onset: '', eyes: '', ears: '', cleftType: '', cleftSyndrome: '', cancerCount: '', breastSide: '', ageAtDeath: '', ageAtDeathUnknown: false, hospitalized: '' };
+  }
+  function freshState() {
+    var s = {
+      step: 0, completed: false,
+      s1: { knowledge: '', maternalUnknown: false, paternalUnknown: false, explain: '',
+        fixed: { mother: blankRel(), father: blankRel(), mgm: blankRel(), mgf: blankRel(), pgm: blankRel(), pgf: blankRel() },
+        siblings: [], halfSiblings: [], matAU: [], patAU: [], children: [],
+        ancMother: [], ancMotherOther: '', ancFather: [], ancFatherOther: '', consanguinity: '' },
+      groups: {},
+      s16: { q1: '', q1Text: '', q2: '', q2Text: '', q3: '' },
+      confirm1: false, confirm2: false
+    };
+    GROUPS.forEach(function (g) { s.groups[g.id] = g.conds.map(function () { return { answer: '', unsureNote: '', entries: [] }; }); });
+    return s;
+  }
+  function mergeState(saved) {
+    var s = freshState();
+    if (!saved || typeof saved !== 'object') return s;
+    ['step', 'completed', 'confirm1', 'confirm2'].forEach(function (k) { if (k in saved) s[k] = saved[k]; });
+    if (saved.s1) for (var k in saved.s1) s.s1[k] = saved.s1[k];
+    if (saved.s16) for (var k2 in saved.s16) s.s16[k2] = saved.s16[k2];
+    GROUPS.forEach(function (g) {
+      var arr = saved.groups && saved.groups[g.id];
+      if (Array.isArray(arr)) g.conds.forEach(function (c, i) { if (arr[i]) s.groups[g.id][i] = arr[i]; });
+    });
+    if (typeof s.step !== 'number' || s.step < 0 || s.step > 18) s.step = 0;
+    return s;
+  }
+
+  function loadSaved() {
+    try { var raw = window.localStorage.getItem(STORAGE_KEY); if (!raw) return null; var d = JSON.parse(raw); return d && d.v === 1 ? d.state : null; }
+    catch (e) { return null; }
+  }
+  function saveNow() { try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ v: 1, savedAt: new Date().toISOString(), state: S })); } catch (e) {} }
+  var saveTimer;
+  function save() { clearTimeout(saveTimer); saveTimer = setTimeout(saveNow, 300); }
+  function clearSaved() { try { window.localStorage.removeItem(STORAGE_KEY); } catch (e) {} }
+
+  var savedState = loadSaved();
+  var S = mergeState(savedState);
+  if (S.step === 18 && !IN_JOTFORM) S.step = 0;
+  var hasSaved = !!savedState && S.step > 0;
+  S.step = 0; // always open on the intro screen; Begin/Continue resumes
+  var resumeStep = savedState && savedState.step > 0 ? Math.min(savedState.step, 17) : 1;
+  var UI = { open: {}, tried: {}, submitting: false, submitError: '', showIssues: false };
+
+  /* ---------------- Helpers ---------------- */
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function pid(path) { return path.replace(/[^a-zA-Z0-9]/g, '_'); }
+  function getP(o, path) { var k = path.split('.'); for (var i = 0; i < k.length; i++) { if (o == null) return undefined; o = o[k[i]]; } return o; }
+  function setP(o, path, v) { var k = path.split('.'); for (var i = 0; i < k.length - 1; i++) { if (o[k[i]] == null) o[k[i]] = /^\d+$/.test(k[i + 1]) ? [] : {}; o = o[k[i]]; } o[k[k.length - 1]] = v; }
+  function announce(msg) { var l = document.getElementById('live'); l.textContent = ''; setTimeout(function () { l.textContent = msg; }, 50); }
+
+  function pills(path, opts, labelId, cls) {
+    var cur = getP(S, path);
+    return '<div class="pills ' + (cls || '') + '" role="radiogroup" aria-labelledby="' + labelId + '">' + opts.map(function (o) {
+      var on = cur === o[0];
+      return '<button type="button" role="radio" aria-checked="' + on + '" class="pill' + (on ? ' on' : '') + '" id="' + pid(path) + '__' + o[0] +
+        '" data-set="' + path + '" data-val="' + o[0] + '"><span class="tick" aria-hidden="true">&#10003; </span>' + esc(o[1]) + '</button>';
+    }).join('') + '</div>';
+  }
+  function optTag(o) { return o && o.optional ? ' <span class="opt">(optional)</span>' : ''; }
+  function pillQ(path, label, opts, o) {
+    var id = 'l_' + pid(path);
+    return '<div class="q"><p class="q-label" id="' + id + '">' + esc(label) + optTag(o) + '</p>' + pills(path, opts, id, o && o.cls) + '</div>';
+  }
+  function textQ(path, label, o) {
+    o = o || {};
+    var id = 'f_' + pid(path), v = getP(S, path) || '';
+    var input = o.long
+      ? '<textarea id="' + id + '" data-bind="' + path + '" rows="' + (o.rows || 3) + '">' + esc(v) + '</textarea>'
+      : '<input type="text" id="' + id + '" data-bind="' + path + '" value="' + esc(v) + '"' + (o.disabled ? ' disabled' : '') + ' autocomplete="off">';
+    return '<div class="q"><label class="q-label" for="' + id + '">' + esc(label) + optTag(o) + '</label>' + (o.hint ? '<p class="hint">' + esc(o.hint) + '</p>' : '') + input + '</div>';
+  }
+  function numField(path, disabled, labelText) {
+    var id = 'f_' + pid(path), v = getP(S, path);
+    return '<input type="number" inputmode="numeric" min="0" max="120" step="1" id="' + id + '" data-bind="' + path + '" value="' + esc(v == null ? '' : v) + '"' +
+      (disabled ? ' disabled' : '') + (labelText ? ' aria-label="' + esc(labelText) + '"' : '') + '>';
+  }
+  function checkbox(path, label) {
+    var id = 'f_' + pid(path), v = !!getP(S, path);
+    return '<label class="check" for="' + id + '"><input type="checkbox" id="' + id + '" data-bind="' + path + '"' + (v ? ' checked' : '') + '><span>' + esc(label) + '</span></label>';
+  }
+  function selectQ(path, label, opts) {
+    var id = 'f_' + pid(path), cur = getP(S, path) || '';
+    return '<div class="q"><label class="q-label" for="' + id + '">' + esc(label) + '</label><select id="' + id + '" data-bind="' + path + '"><option value="">Select a family member</option>' +
+      opts.map(function (o) { return '<option value="' + o[0] + '"' + (cur === o[0] ? ' selected' : '') + '>' + esc(o[1]) + '</option>'; }).join('') + '</select></div>';
+  }
+
+  /* ---------------- Section 1 ---------------- */
+  var FIXED_TITLES = { mother: 'Mother', father: 'Father', mgm: 'Maternal grandmother', mgf: 'Maternal grandfather', pgm: 'Paternal grandmother', pgf: 'Paternal grandfather' };
+  var LISTS = {
+    siblings: { title: 'Full sibling', add: 'Add sibling', rel: 'full_sibling' },
+    halfSiblings: { title: 'Half-sibling', add: 'Add half-sibling', rel: 'half_sibling' },
+    matAU: { title: 'Maternal aunt/uncle', add: 'Add maternal aunt/uncle', rel: 'maternal_aunt_uncle' },
+    patAU: { title: 'Paternal aunt/uncle', add: 'Add paternal aunt/uncle', rel: 'paternal_aunt_uncle' },
+    children: { title: 'Biological child', add: 'Add child', rel: 'my_child' }
+  };
+  function relList() {
+    var out = [];
+    function fx(k) { out.push({ path: 's1.fixed.' + k, title: FIXED_TITLES[k], rel: k === 'mgm' ? 'maternal_grandmother' : k === 'mgf' ? 'maternal_grandfather' : k === 'pgm' ? 'paternal_grandmother' : k === 'pgf' ? 'paternal_grandfather' : k, kind: 'fixed' }); }
+    function ls(key) { S.s1[key].forEach(function (r, i) { out.push({ path: 's1.' + key + '.' + i, title: LISTS[key].title + ' ' + (i + 1), rel: LISTS[key].rel, kind: key, list: key, idx: i }); }); }
+    fx('mother'); fx('father'); ls('siblings'); ls('halfSiblings'); fx('mgm'); fx('mgf'); fx('pgm'); fx('pgf'); ls('matAU'); ls('patAU'); ls('children');
+    return out;
+  }
+  function relSummary(r, kind) {
+    if (!r.status) return null;
+    var parts = [];
+    if (kind === 'halfSiblings' && r.side) parts.push(lbl(SIDE, r.side));
+    if ((kind === 'matAU' || kind === 'patAU') && r.relation) parts.push(lbl(AUREL, r.relation));
+    parts.push(lbl(VITAL, r.status));
+    if (r.ageUnknown) parts.push('age unknown'); else if (r.age !== '' && r.age != null) parts.push((r.status === 'deceased' ? 'died at ' : 'age ') + r.age);
+    if (r.conditions) parts.push('health conditions: ' + lbl(YNU, r.conditions).toLowerCase());
+    return parts.join(', ');
+  }
+  function relCard(item) {
+    var r = getP(S, item.path), open = !!UI.open[item.path], sum = relSummary(r, item.kind);
+    var missing = !r.status || (item.kind === 'halfSiblings' && !r.side);
+    var cardId = 'card_' + pid(item.path);
+    var h = '<div class="relcard' + (missing && UI.showIssues ? ' missing' : '') + '" id="' + cardId + '">' +
+      '<button type="button" class="relhead" id="' + cardId + '_btn" aria-expanded="' + open + '" aria-controls="' + cardId + '_body" data-act="toggleCard" data-path="' + item.path + '">' +
+      '<span><span class="t">' + esc(item.title) + '</span><span class="s' + (sum ? '' : ' todo') + '">' + esc(sum || 'Not answered yet') + '</span></span><span class="chev" aria-hidden="true"></span></button>';
+    if (open) {
+      var P = item.path;
+      h += '<div class="relbody" id="' + cardId + '_body">';
+      if (item.kind === 'halfSiblings') h += pillQ(P + '.side', 'Maternal or paternal half-sibling?', SIDE);
+      if (item.kind === 'matAU' || item.kind === 'patAU') h += pillQ(P + '.relation', 'Aunt or uncle?', AUREL, { optional: true });
+      h += pillQ(P + '.status', 'Living, deceased, or unknown?', VITAL);
+      var ageLabel = r.status === 'deceased' ? 'Age at death' : 'Current age';
+      h += '<div class="q"><label class="q-label" for="f_' + pid(P + '.age') + '">' + ageLabel + '</label><div class="row-num">' + numField(P + '.age', r.ageUnknown) + checkbox(P + '.ageUnknown', 'Unknown') + '</div></div>';
+      if (r.status === 'deceased') {
+        h += textQ(P + '.cause', 'Cause of death', { disabled: r.causeUnknown });
+        h += '<div style="margin-top:-12px;margin-bottom:12px">' + checkbox(P + '.causeUnknown', 'Cause of death unknown') + '</div>';
+      }
+      h += pillQ(P + '.conditions', 'Any major health conditions?', YNU);
+      if (r.conditions === 'yes') h += textQ(P + '.conditionsText', 'Please describe briefly');
+      if (item.list) h += '<button type="button" class="linkbtn danger" data-act="removeRel" data-list="' + item.list + '" data-idx="' + item.idx + '">Remove ' + esc(item.title.toLowerCase()) + '</button>';
+      h += '</div>';
+    }
+    return h + '</div>';
+  }
+  function addBtn(key) { return '<button type="button" class="btn secondary small" data-act="addRel" data-list="' + key + '" id="add_' + key + '">+ ' + esc(LISTS[key].add) + '</button>'; }
+  function ancestryQ(key, label) {
+    var path = 's1.' + key, cur = S.s1[key], id = 'l_' + pid(path);
+    var h = '<div class="q"><p class="q-label" id="' + id + '">' + esc(label) + '</p><p class="hint">Select all that apply.</p><div class="pills wrap" role="group" aria-labelledby="' + id + '">' +
+      ANCESTRY.map(function (o) {
+        var on = cur.indexOf(o[0]) > -1;
+        return '<button type="button" role="checkbox" aria-checked="' + on + '" class="pill' + (on ? ' on' : '') + '" id="' + pid(path) + '__' + o[0] + '" data-toggle="' + path + '" data-val="' + o[0] + '"><span class="tick" aria-hidden="true">&#10003; </span>' + esc(o[1]) + '</button>';
+      }).join('') + '</div></div>';
+    if (cur.indexOf('other') > -1) h += textQ(path + 'Other', 'Please describe other ancestry');
+    return h;
+  }
+  function renderS1() {
+    var s1 = S.s1, h = '';
+    h += pillQ('s1.knowledge', "How much do you know about your biological family's medical history?", KNOWLEDGE, { cls: 'stack' });
+    if (s1.knowledge === 'some' || s1.knowledge === 'little') {
+      h += '<div class="q">' + checkbox('s1.maternalUnknown', 'Maternal side unknown') + checkbox('s1.paternalUnknown', 'Paternal side unknown') + '</div>';
+      h += textQ('s1.explain', 'Please explain what information is unavailable.', { long: true });
+    }
+    h += '<h2>Your relatives</h2><p class="muted">Tap each relative to open their card. Answer "Unknown" whenever you are not sure.</p>';
+    var items = relList();
+    function cards(kind) { return items.filter(function (i) { return i.kind === kind; }).map(relCard).join(''); }
+    function fixed(k) { return relCard(items.filter(function (i) { return i.path === 's1.fixed.' + k; })[0]); }
+    h += '<p class="group-label">Parents</p>' + fixed('mother') + fixed('father');
+    h += '<p class="group-label">Full siblings</p>' + cards('siblings') + addBtn('siblings');
+    h += '<p class="group-label">Half-siblings</p>' + cards('halfSiblings') + addBtn('halfSiblings');
+    h += '<p class="group-label">Grandparents</p>' + fixed('mgm') + fixed('mgf') + fixed('pgm') + fixed('pgf');
+    h += '<p class="group-label">Maternal aunts and uncles</p>' + cards('matAU') + addBtn('matAU');
+    h += '<p class="group-label">Paternal aunts and uncles</p>' + cards('patAU') + addBtn('patAU');
+    h += '<p class="group-label">Your own biological children, if any</p>' + cards('children') + addBtn('children');
+    h += '<h2>Ancestry</h2>';
+    h += ancestryQ('ancMother', 'What is the ancestry or ethnic background of your biological mother?');
+    h += ancestryQ('ancFather', 'What is the ancestry or ethnic background of your biological father?');
+    h += pillQ('s1.consanguinity', 'Are your biological parents related to each other by blood (for example, cousins)?', YNU);
+    return h;
+  }
+
+  /* ---------------- Condition groups ---------------- */
+  function groupAnswered(g) { return S.groups[g.id].filter(function (a) { return !!a.answer; }).length; }
+  function renderEntry(g, c, ci, ei, total) {
+    var P = 'groups.' + g.id + '.' + ci + '.entries.' + ei, e = getP(S, P), h = '';
+    h += '<div class="entry" id="entry_' + pid(P) + '"><div class="entry-head"><h3>Affected family member ' + (ei + 1) + '</h3>' +
+      (total > 1 ? '<button type="button" class="linkbtn danger" data-act="removeEntry" data-path="groups.' + g.id + '.' + ci + '.entries" data-idx="' + ei + '">Remove</button>' : '') + '</div>';
+    h += selectQ(P + '.relative', 'Which biological family member?', RELATIVES);
+    if (e.relative === 'other') h += textQ(P + '.relativeOther', 'Please describe how they are related to you');
+    if (c.ex.gentle) {
+      h += pillQ(P + '.ageMode', 'Age at the time, if known', AGEMODE_GENTLE, { optional: true });
+      if (e.ageMode === 'age') h += '<div class="q" style="margin-top:-8px">' + numField(P + '.age', false, 'Age in years') + '</div>';
+      h += textQ(P + '.details', 'Anything else you would like to share', { long: true, optional: true });
+      return h + '</div>';
+    }
+    h += textQ(P + '.diagnosis', 'Specific diagnosis, if known', { optional: true });
+    h += pillQ(P + '.ageMode', 'Age when diagnosed or first noticed', AGEMODE);
+    if (e.ageMode === 'age') h += '<div class="q" style="margin-top:-8px">' + numField(P + '.age', false, 'Age in years when diagnosed or first noticed') + '</div>';
+    if (c.ex.deathAge) {
+      h += '<div class="q"><label class="q-label" for="f_' + pid(P + '.ageAtDeath') + '">Age at death</label><div class="row-num">' + numField(P + '.ageAtDeath', e.ageAtDeathUnknown) + checkbox(P + '.ageAtDeathUnknown', 'Unknown') + '</div></div>';
+    }
+    h += pillQ(P + '.cause', 'Is the cause known?', CAUSE, { cls: 'stack' });
+    h += pillQ(P + '.status', 'Current status', c.type === 'L' ? STATUS_L : STATUS_T, { cls: 'stack' });
+    if (c.ex.onset) h += pillQ(P + '.onset', 'Was it present at birth or did it develop later?', ONSET);
+    if (c.ex.eyes) h += pillQ(P + '.eyes', 'One eye or both?', EYES);
+    if (c.ex.ears) h += pillQ(P + '.ears', 'One ear or both?', EARS);
+    if (c.ex.cleft) {
+      h += pillQ(P + '.cleftType', 'Lip only, palate only, or both?', CLEFT);
+      h += pillQ(P + '.cleftSyndrome', 'Was it part of a diagnosed syndrome?', YNU);
+    }
+    if (c.ex.cancer) h += pillQ(P + '.cancerCount', "Was this the person's only cancer, or did they have more than one separate cancer?", CANCERCOUNT, { cls: 'stack' });
+    if (c.ex.breast) h += pillQ(P + '.breastSide', 'One breast or both?', BREAST);
+    if (c.ex.mental) h += pillQ(P + '.hospitalized', 'Has this person been hospitalized for this condition?', YNU);
+    h += pillQ(P + '.genTest', 'Has this person had genetic testing for this condition?', YNU);
+    if (e.genTest === 'yes') h += textQ(P + '.genTestResult', 'What were the results, if known?', { optional: true });
+    h += textQ(P + '.details', 'Additional details', { long: true, optional: true });
+    return h + '</div>';
+  }
+  function renderCond(g, c, ci, tried) {
+    var A = S.groups[g.id][ci], base = 'groups.' + g.id + '.' + ci, labelId = 'cl_' + c.id;
+    var h = '<div class="cond' + (tried && !A.answer ? ' unanswered' : '') + '" id="cond_' + c.id + '">';
+    h += '<p class="cond-label" id="' + labelId + '">' + esc(c.label) + '</p>' + pills(base + '.answer', YNU, labelId);
+    if (A.answer === 'unsure') h += '<div class="panel">' + textQ(base + '.unsureNote', 'Tell us what you know or suspect.', { long: true, optional: true }) + '</div>';
+    if (A.answer === 'yes') {
+      h += '<div class="panel">';
+      if (c.ex.gentle) h += '<p class="gentle">Thank you for sharing this. Only include what you are comfortable sharing. Details are optional.</p>';
+      A.entries.forEach(function (e, ei) { h += renderEntry(g, c, ci, ei, A.entries.length); });
+      h += '<button type="button" class="btn secondary small" data-act="addEntry" data-path="' + base + '.entries" id="addentry_' + c.id + '">+ Add another affected family member</button></div>';
+    }
+    return h + '</div>';
+  }
+  function renderGroup(g) {
+    var ans = S.groups[g.id], total = g.conds.length, done = groupAnswered(g), tried = !!UI.tried[S.step];
+    var allNo = ans.every(function (a) { return a.answer === 'no'; });
+    var h = '<p class="lead">' + esc(g.q) + '</p>';
+    h += '<button type="button" class="noall" id="noall_' + g.id + '" aria-pressed="' + allNo + '" data-act="noAll" data-group="' + g.id + '">' + (allNo ? '&#10003; ' : '') + 'No to All</button>';
+    h += '<p class="counter" aria-live="polite">' + done + ' of ' + total + ' conditions answered</p>';
+    g.conds.forEach(function (c, ci) { h += renderCond(g, c, ci, tried); });
+    if (done < total) {
+      var missing = g.conds.filter(function (c, ci) { return !ans[ci].answer; });
+      if (tried) {
+        h += '<div class="alert warn" role="alert">Almost there. Please answer ' + (missing.length === 1 ? 'this item' : 'these ' + missing.length + ' items') + ' before continuing:<ul>' +
+          missing.map(function (c) { return '<li><a href="#cond_' + c.id + '" data-act="jump" data-target="cond_' + c.id + '">' + esc(c.label) + '</a></li>'; }).join('') + '</ul></div>';
+      } else {
+        h += '<p class="alert info">Please answer every item to continue. "Unsure" is always a fine answer.</p>';
+      }
+    }
+    return h;
+  }
+
+  /* ---------------- Section 16 ---------------- */
+  function renderS16() {
+    var s = S.s16, h = '';
+    h += pillQ('s16.q1', 'Has anyone in your biological family had genetic testing that found an inherited condition or disease-causing variant not already mentioned?', YNU);
+    if (s.q1 === 'yes') h += textQ('s16.q1Text', 'Please describe', { long: true });
+    h += pillQ('s16.q2', 'Is there a medical condition that has appeared in several generations of your family?', YNU);
+    if (s.q2 === 'yes') h += textQ('s16.q2Text', 'Please describe', { long: true });
+    h += textQ('s16.q3', 'Is there any other family health information you think may be relevant?', { long: true, optional: true, rows: 5 });
+    return h;
+  }
+
+  /* ---------------- Validation ---------------- */
+  function issues() {
+    var out = [], s1 = S.s1;
+    if (!s1.knowledge) out.push({ step: 1, text: 'How much you know about your family medical history', id: 'l_' + pid('s1.knowledge') });
+    relList().forEach(function (r) {
+      var v = getP(S, r.path);
+      if (!v.status) out.push({ step: 1, text: r.title + ': living, deceased, or unknown', id: 'card_' + pid(r.path), card: r.path });
+      if (r.kind === 'halfSiblings' && !v.side) out.push({ step: 1, text: r.title + ': maternal or paternal', id: 'card_' + pid(r.path), card: r.path });
+    });
+    if (!s1.ancMother.length) out.push({ step: 1, text: "Your biological mother's ancestry", id: 'l_' + pid('s1.ancMother') });
+    if (!s1.ancFather.length) out.push({ step: 1, text: "Your biological father's ancestry", id: 'l_' + pid('s1.ancFather') });
+    if (!s1.consanguinity) out.push({ step: 1, text: 'Whether your biological parents are related by blood', id: 'l_' + pid('s1.consanguinity') });
+    GROUPS.forEach(function (g) {
+      g.conds.forEach(function (c, ci) {
+        var a = S.groups[g.id][ci];
+        if (!a.answer) out.push({ step: g.section, text: c.label, id: 'cond_' + c.id });
+        else if (a.answer === 'yes') a.entries.forEach(function (e, ei) {
+          if (!e.relative) out.push({ step: g.section, text: c.label + ': which family member' + (a.entries.length > 1 ? ' (entry ' + (ei + 1) + ')' : ''), id: 'f_' + pid('groups.' + g.id + '.' + ci + '.entries.' + ei + '.relative') });
+        });
+      });
+    });
+    if (!S.s16.q1) out.push({ step: 16, text: 'Genetic testing that found an inherited condition', id: 'l_' + pid('s16.q1') });
+    if (!S.s16.q2) out.push({ step: 16, text: 'Condition appearing in several generations', id: 'l_' + pid('s16.q2') });
+    return out;
+  }
+
+  /* ---------------- Review ---------------- */
+  function relLabel(e) { return e.relative === 'other' ? ('Other relative' + (e.relativeOther ? ' (' + e.relativeOther + ')' : '')) : lbl(RELATIVES, e.relative) || 'Family member not selected'; }
+  function entrySummary(c, e) {
+    var p = [relLabel(e)];
+    if (c.ex.gentle) {
+      if (e.ageMode === 'age' && e.age !== '') p.push('age ' + e.age); else if (e.ageMode === 'unknown') p.push('age unknown');
+      if (e.details) p.push(e.details);
+      return p.join(' · ');
+    }
+    if (e.diagnosis) p.push(e.diagnosis);
+    if (e.ageMode === 'age' && e.age !== '') p.push('diagnosed at ' + e.age); else if (e.ageMode === 'birth') p.push('present at birth'); else if (e.ageMode === 'unknown') p.push('age at diagnosis unknown');
+    if (c.ex.deathAge) { if (e.ageAtDeathUnknown) p.push('age at death unknown'); else if (e.ageAtDeath !== '') p.push('age at death ' + e.ageAtDeath); }
+    if (e.cause) p.push('cause: ' + lbl(CAUSE, e.cause).toLowerCase());
+    if (e.status) p.push(lbl(c.type === 'L' ? STATUS_L : STATUS_T, e.status).toLowerCase());
+    if (c.ex.onset && e.onset) p.push(lbl(ONSET, e.onset).toLowerCase());
+    if (c.ex.eyes && e.eyes) p.push(lbl(EYES, e.eyes).toLowerCase());
+    if (c.ex.ears && e.ears) p.push(lbl(EARS, e.ears).toLowerCase());
+    if (c.ex.cleft && e.cleftType) p.push(lbl(CLEFT, e.cleftType).toLowerCase());
+    if (c.ex.cleft && e.cleftSyndrome) p.push('part of a syndrome: ' + lbl(YNU, e.cleftSyndrome).toLowerCase());
+    if (c.ex.cancer && e.cancerCount) p.push(lbl(CANCERCOUNT, e.cancerCount).toLowerCase());
+    if (c.ex.breast && e.breastSide) p.push(lbl(BREAST, e.breastSide).toLowerCase());
+    if (c.ex.mental && e.hospitalized) p.push('hospitalized: ' + lbl(YNU, e.hospitalized).toLowerCase());
+    if (e.genTest) p.push('genetic testing: ' + lbl(YNU, e.genTest).toLowerCase() + (e.genTest === 'yes' && e.genTestResult ? ' (' + e.genTestResult + ')' : ''));
+    if (e.details) p.push(e.details);
+    return p.join(' · ');
+  }
+  function editLink(step, name) { return '<button type="button" class="linkbtn" data-act="goto" data-step="' + step + '" aria-label="Edit ' + esc(name) + '">Edit</button>'; }
+  function renderReview() {
+    var iss = issues(), h = '';
+    h += '<p class="muted">Please review your answers. Use "Edit" to make changes. Anything still unanswered is shown in red.</p>';
+    if (iss.length) {
+      h += '<div class="alert warn" role="alert" id="issues">' + iss.length + (iss.length === 1 ? ' item needs' : ' items need') + ' an answer before you can submit:<ul>' +
+        iss.map(function (i) { return '<li><a href="#" data-act="goto" data-step="' + i.step + '" data-target="' + i.id + '"' + (i.card ? ' data-card="' + i.card + '"' : '') + '>Section ' + i.step + ': ' + esc(i.text) + '</a></li>'; }).join('') + '</ul></div>';
+    }
+    // Section 1
+    var s1 = S.s1;
+    h += '<div class="rsec"><div class="rsec-head"><h3>1. Your Biological Family</h3>' + editLink(1, 'Section 1') + '</div><ul>';
+    h += '<li>' + (s1.knowledge ? esc(lbl(KNOWLEDGE, s1.knowledge)) : '<span class="rmiss">Knowledge of family history not answered</span>') + '</li>';
+    if ((s1.knowledge === 'some' || s1.knowledge === 'little') && (s1.maternalUnknown || s1.paternalUnknown || s1.explain)) {
+      var u = []; if (s1.maternalUnknown) u.push('maternal side unknown'); if (s1.paternalUnknown) u.push('paternal side unknown');
+      h += '<li>' + esc(u.join(', ') + (s1.explain ? (u.length ? '. ' : '') + s1.explain : '')) + '</li>';
+    }
+    relList().forEach(function (r) {
+      var v = getP(S, r.path), sum = relSummary(v, r.kind);
+      h += '<li>' + esc(r.title) + ': ' + (sum ? esc(sum) + (v.conditions === 'yes' && v.conditionsText ? ' (' + esc(v.conditionsText) + ')' : '') + (v.status === 'deceased' ? '. Cause of death: ' + esc(v.causeUnknown ? 'unknown' : (v.cause || 'not given')) : '') : '<span class="rmiss">Not answered</span>') +
+        (r.kind === 'halfSiblings' && !v.side ? ' <span class="rmiss">(maternal or paternal not answered)</span>' : '') + '</li>';
+    });
+    function anc(key, who) {
+      var a = s1[key];
+      if (!a.length) return '<li><span class="rmiss">' + who + ' ancestry not answered</span></li>';
+      return '<li>' + who + ' ancestry: ' + esc(a.map(function (v) { return v === 'other' && s1[key + 'Other'] ? 'Other (' + s1[key + 'Other'] + ')' : lbl(ANCESTRY, v); }).join(', ')) + '</li>';
+    }
+    h += anc('ancMother', "Mother's") + anc('ancFather', "Father's");
+    h += '<li>Parents related by blood: ' + (s1.consanguinity ? esc(lbl(YNU, s1.consanguinity)) : '<span class="rmiss">Not answered</span>') + '</li></ul></div>';
+    // Groups
+    GROUPS.forEach(function (g) {
+      var ans = S.groups[g.id], lines = [];
+      g.conds.forEach(function (c, ci) {
+        var a = ans[ci];
+        if (!a.answer) lines.push('<li class="rmiss">' + esc(c.label) + ': not answered</li>');
+        else if (a.answer === 'unsure') lines.push('<li><span class="tag unsure">Unsure</span>' + esc(c.label) + (a.unsureNote ? ': ' + esc(a.unsureNote) : '') + '</li>');
+        else if (a.answer === 'yes') lines.push('<li><span class="tag">Yes</span>' + esc(c.label) + '<ul>' + a.entries.map(function (e) { return '<li' + (e.relative ? '' : ' class="rmiss"') + '>' + esc(entrySummary(c, e)) + '</li>'; }).join('') + '</ul></li>');
+      });
+      h += '<div class="rsec"><div class="rsec-head"><h3>' + g.section + '. ' + esc(g.title) + '</h3>' + editLink(g.section, 'Section ' + g.section) + '</div>' +
+        (lines.length ? '<ul>' + lines.join('') + '</ul>' : '<p style="margin:6px 0 0">No known history.</p>') + '</div>';
+    });
+    // Section 16
+    var s = S.s16;
+    function yn(v, t) { return v ? esc(lbl(YNU, v)) + (v === 'yes' && t ? ': ' + esc(t) : '') : '<span class="rmiss">Not answered</span>'; }
+    h += '<div class="rsec"><div class="rsec-head"><h3>16. Additional Questions</h3>' + editLink(16, 'Section 16') + '</div><ul>' +
+      '<li>Other genetic testing results: ' + yn(s.q1, s.q1Text) + '</li>' +
+      '<li>Condition in several generations: ' + yn(s.q2, s.q2Text) + '</li>' +
+      '<li>Other relevant information: ' + (s.q3 ? esc(s.q3) : 'None provided') + '</li></ul></div>';
+    // Confirmations
+    h += '<h2>Confirm</h2>';
+    h += checkbox('confirm1', "I confirm the information I've provided is accurate and complete to the best of my knowledge.");
+    h += checkbox('confirm2', 'I understand I may be asked for more information during medical and genetic screening, and that I should tell Venus Egg Donation if I learn of new medical diagnoses in my biological family, including after donation.');
+    if (UI.showIssues && (!S.confirm1 || !S.confirm2)) h += '<p class="alert warn" role="alert">Please check both boxes above to submit.</p>';
+    if (UI.submitError) h += '<div class="alert warn" role="alert">' + esc(UI.submitError) + ' Your answers are still saved on this device. <button type="button" class="linkbtn" data-act="submit">Try again</button></div>';
+    h += '<p class="footnote">This questionnaire is reviewed by qualified medical and genetics professionals. It does not replace the medical, genetic, and psychological screening performed by your fertility clinic.</p>';
+    return h;
+  }
+
+  /* ---------------- Payload ---------------- */
+  function num(v) { return v === '' || v == null ? null : Number(v); }
+  function relOut(r, item) {
+    var o = { relationship: item.rel, label: item.title, vitalStatus: r.status || null,
+      age: r.ageUnknown ? 'unknown' : num(r.age), ageType: r.status === 'deceased' ? 'age_at_death' : 'current_age',
+      majorHealthConditions: r.conditions || null, majorHealthConditionsDetails: r.conditions === 'yes' ? r.conditionsText : '' };
+    if (r.status === 'deceased') o.causeOfDeath = r.causeUnknown ? 'unknown' : (r.cause || null);
+    if (item.kind === 'halfSiblings') o.side = r.side || null;
+    if (item.kind === 'matAU' || item.kind === 'patAU') o.auntOrUncle = r.relation || null;
+    return o;
+  }
+  function entryOut(c, e) {
+    var o = { relative: e.relative || null, relativeLabel: e.relative ? lbl(RELATIVES, e.relative) : null };
+    if (e.relative === 'other') o.relativeOther = e.relativeOther;
+    var age = e.ageMode === 'age' ? num(e.age) : e.ageMode === 'birth' ? 'present_at_birth' : e.ageMode === 'unknown' ? 'unknown' : null;
+    if (c.ex.gentle) { o.ageAtTime = age; o.additionalDetails = e.details; return o; }
+    o.diagnosis = e.diagnosis; o.ageAtDiagnosis = age; o.causeKnown = e.cause || null; o.currentStatus = e.status || null;
+    if (c.ex.deathAge) o.ageAtDeath = e.ageAtDeathUnknown ? 'unknown' : num(e.ageAtDeath);
+    if (c.ex.onset) o.onset = e.onset || null;
+    if (c.ex.eyes) o.eyesAffected = e.eyes || null;
+    if (c.ex.ears) o.earsAffected = e.ears || null;
+    if (c.ex.cleft) { o.cleftType = e.cleftType || null; o.partOfDiagnosedSyndrome = e.cleftSyndrome || null; }
+    if (c.ex.cancer) o.cancerCount = e.cancerCount || null;
+    if (c.ex.breast) o.breastsAffected = e.breastSide || null;
+    if (c.ex.mental) o.hospitalized = e.hospitalized || null;
+    o.geneticTesting = e.genTest || null; o.geneticTestingResults = e.genTest === 'yes' ? e.genTestResult : '';
+    o.additionalDetails = e.details;
+    return o;
+  }
+  function buildPayload() {
+    var s1 = S.s1;
+    return {
+      form: 'venus_egg_donation_family_medical_history', schemaVersion: 1, submittedAt: new Date().toISOString(),
+      section1_biologicalFamily: {
+        knowledgeLevel: s1.knowledge || null,
+        maternalSideUnknown: s1.knowledge !== 'most' && !!s1.maternalUnknown,
+        paternalSideUnknown: s1.knowledge !== 'most' && !!s1.paternalUnknown,
+        unavailableInformation: s1.knowledge !== 'most' ? s1.explain : '',
+        relatives: relList().map(function (item) { return relOut(getP(S, item.path), item); }),
+        ancestry: { mother: s1.ancMother.slice(), motherOther: s1.ancMother.indexOf('other') > -1 ? s1.ancMotherOther : '',
+          father: s1.ancFather.slice(), fatherOther: s1.ancFather.indexOf('other') > -1 ? s1.ancFatherOther : '' },
+        parentsRelatedByBlood: s1.consanguinity || null
+      },
+      conditionSections: GROUPS.map(function (g) {
+        return { section: g.section, id: g.id, title: g.title, question: g.q,
+          conditions: g.conds.map(function (c, ci) {
+            var a = S.groups[g.id][ci];
+            return { id: c.id, label: c.label, conditionType: c.type === 'L' ? 'LIFELONG' : 'TREATABLE', answer: a.answer || null,
+              unsureNote: a.answer === 'unsure' ? a.unsureNote : '',
+              affectedRelatives: a.answer === 'yes' ? a.entries.map(function (e) { return entryOut(c, e); }) : [] };
+          }) };
+      }),
+      section16_additional: {
+        otherGeneticTestingFindings: S.s16.q1 || null, otherGeneticTestingDetails: S.s16.q1 === 'yes' ? S.s16.q1Text : '',
+        conditionInSeveralGenerations: S.s16.q2 || null, conditionInSeveralGenerationsDetails: S.s16.q2 === 'yes' ? S.s16.q2Text : '',
+        otherRelevantInformation: S.s16.q3
+      },
+      confirmations: { accurateAndComplete: !!S.confirm1, understandsFollowUpAndUpdates: !!S.confirm2 }
+    };
+  }
+
+  /* ---------------- Screens ---------------- */
+  var app = document.getElementById('app');
+  function header(step) {
+    var pct = Math.round(step / TOTAL * 100);
+    return '<p class="eyebrow">Section ' + step + ' of ' + TOTAL + '</p>' +
+      '<div class="progress" role="progressbar" aria-label="Questionnaire progress" aria-valuemin="0" aria-valuemax="' + TOTAL + '" aria-valuenow="' + step + '" aria-valuetext="Section ' + step + ' of ' + TOTAL + '"><span style="width:' + pct + '%"></span></div>' +
+      '<h1 tabindex="-1" id="stepTitle">' + esc(stepTitle(step)) + '</h1>';
+  }
+  function nav(step) {
+    var nextBtn;
+    if (step === 17) nextBtn = '<button type="button" class="btn" id="btn_submit" data-act="submit"' + (UI.submitting ? ' aria-disabled="true"' : '') + '>' + (UI.submitting ? 'Submitting…' : 'Submit') + '</button>';
+    else {
+      var blocked = step >= 2 && step <= 15 && groupAnswered(GROUPS[step - 2]) < GROUPS[step - 2].conds.length;
+      nextBtn = '<button type="button" class="btn" id="btn_next" data-act="next"' + (blocked ? ' aria-disabled="true"' : '') + '>Next</button>';
+    }
+    return '<div class="nav"><button type="button" class="btn secondary" id="btn_prev" data-act="prev">Previous</button>' + nextBtn + '</div>';
+  }
+  function renderIntro() {
+    return '<h1 tabindex="-1" id="stepTitle">Family Medical History</h1><div class="card-intro"><p style="margin:0">Please answer these questions about your biological family\'s health to the best of your knowledge. \'Biological family\' means relatives related to you by birth: parents, siblings, half-siblings, grandparents, aunts, uncles, cousins, and your own children. Answer \'Unsure\' if you don\'t know. Unknown information is never treated as \'No.\' This questionnaire does not replace the medical and genetic screening performed by your fertility clinic.</p></div>' +
+      (hasSaved ? '<p class="alert info">Welcome back. Your earlier answers were saved on this device.</p>' : '') +
+      '<button type="button" class="btn block" id="btn_begin" data-act="begin">' + (hasSaved ? 'Continue where I left off' : 'Begin') + '</button>' +
+      (hasSaved ? '<p style="text-align:center;margin-top:10px"><button type="button" class="linkbtn danger" data-act="startOver">Start over</button></p>' : '');
+  }
+  function renderDone() {
+    return '<h1 tabindex="-1" id="stepTitle">Thank you</h1><p class="alert ok">Thank you. Your family medical history has been submitted.</p>' +
+      (IN_JOTFORM ? '<p>Please continue with the rest of your application. If you need to change anything before you send your full application, you can still edit your answers.</p><button type="button" class="btn secondary" data-act="editAfter">Edit my answers</button>' : '');
+  }
+  function render() {
+    var st = S.step, h;
+    if (st === 0) h = renderIntro();
+    else if (st === 18) h = renderDone();
+    else {
+      h = header(st);
+      if (st === 1) h += renderS1();
+      else if (st <= 15) h += renderGroup(GROUPS[st - 2]);
+      else if (st === 16) h += renderS16();
+      else h += renderReview();
+      h += nav(st);
+    }
+    app.innerHTML = h;
+  }
+  function rerender() {
+    var a = document.activeElement, id = a && a.id;
+    render();
+    if (id) { var el = document.getElementById(id); if (el) try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); } }
+    save();
+  }
+  function go(step, targetId, cardPath) {
+    S.step = step; UI.submitError = '';
+    if (cardPath) UI.open[cardPath] = true;
+    saveNow(); render();
+    var target = targetId && document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ block: 'center' });
+      var f = target.matches('button,input,select,textarea') ? target : target.querySelector('button,input,select,textarea');
+      if (f) try { f.focus({ preventScroll: true }); } catch (e) {}
+    } else {
+      document.getElementById('top').scrollIntoView({ block: 'start' });
+      var t = document.getElementById('stepTitle'); if (t) try { t.focus({ preventScroll: true }); } catch (e) {}
+    }
+    if (step >= 1 && step <= 17) announce('Section ' + step + ' of ' + TOTAL + ': ' + stepTitle(step));
+  }
+
+  /* ---------------- Submission ---------------- */
+  function submit() {
+    if (UI.submitting) return;
+    var iss = issues();
+    UI.showIssues = true;
+    if (iss.length || !S.confirm1 || !S.confirm2) {
+      rerender();
+      var el = document.getElementById(iss.length ? 'issues' : 'f_confirm1');
+      if (el) { el.scrollIntoView({ block: 'center' }); if (!iss.length) el.focus({ preventScroll: true }); }
+      return;
+    }
+    var payload = buildPayload();
+    if (IN_JOTFORM) {
+      try { window.JFCustomWidget.sendData({ value: JSON.stringify(payload) }); } catch (e) {}
+      S.completed = true; saveNow(); go(18);
+      return;
+    }
+    if (!SUBMISSION_ENDPOINT_URL || SUBMISSION_ENDPOINT_URL === 'SUBMISSION_ENDPOINT_URL') {
+      UI.submitError = 'Submission is not set up yet (no endpoint configured).'; rerender(); return;
+    }
+    UI.submitting = true; UI.submitError = ''; rerender();
+    fetch(SUBMISSION_ENDPOINT_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); })
+      .then(function () { UI.submitting = false; clearSaved(); S = freshState(); hasSaved = false; S.step = 18; render(); var t = document.getElementById('stepTitle'); if (t) t.focus(); document.getElementById('top').scrollIntoView(); })
+      .catch(function () { UI.submitting = false; UI.submitError = 'Something went wrong and your answers were not submitted.'; rerender(); });
+  }
+
+  /* ---------------- Events ---------------- */
+  app.addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-set],[data-toggle],[data-act]');
+    if (!b || !app.contains(b)) return;
+    if (b.hasAttribute('data-set')) {
+      var path = b.getAttribute('data-set'), val = b.getAttribute('data-val');
+      setP(S, path, val);
+      var m = path.match(/^groups\.(\w+)\.(\d+)\.answer$/);
+      if (m && val === 'yes') { var A = S.groups[m[1]][+m[2]]; if (!A.entries.length) A.entries.push(blankEntry()); }
+      rerender(); return;
+    }
+    if (b.hasAttribute('data-toggle')) {
+      var tp = b.getAttribute('data-toggle'), tv = b.getAttribute('data-val'), arr = getP(S, tp), i = arr.indexOf(tv);
+      if (i > -1) arr.splice(i, 1); else arr.push(tv);
+      rerender(); return;
+    }
+    var act = b.getAttribute('data-act');
+    if (b.tagName === 'A') ev.preventDefault();
+    switch (act) {
+      case 'begin': go(hasSaved ? resumeStep : 1); break;
+      case 'startOver':
+        if (window.confirm('Start over? This clears the answers saved on this device.')) { clearSaved(); S = freshState(); hasSaved = false; resumeStep = 1; UI = { open: {}, tried: {}, submitting: false, submitError: '', showIssues: false }; render(); }
+        break;
+      case 'prev': go(S.step - 1); break;
+      case 'next':
+        if (b.getAttribute('aria-disabled') === 'true') {
+          UI.tried[S.step] = true; render();
+          var g = GROUPS[S.step - 2], ci = S.groups[g.id].findIndex(function (a) { return !a.answer; });
+          var first = document.getElementById('cond_' + g.conds[ci].id);
+          if (first) { first.scrollIntoView({ block: 'center' }); var fb = first.querySelector('button'); if (fb) fb.focus({ preventScroll: true }); }
+          announce('Please answer the items marked in red.');
+        } else go(S.step + 1);
+        break;
+      case 'noAll':
+        S.groups[b.getAttribute('data-group')].forEach(function (a) { a.answer = 'no'; });
+        rerender(); announce('All conditions in this section marked No. You can still change any answer.'); break;
+      case 'addEntry': getP(S, b.getAttribute('data-path')).push(blankEntry()); rerender(); break;
+      case 'removeEntry':
+        if (window.confirm('Remove this family member entry?')) { getP(S, b.getAttribute('data-path')).splice(+b.getAttribute('data-idx'), 1); rerender(); }
+        break;
+      case 'addRel': {
+        var key = b.getAttribute('data-list'), list = S.s1[key];
+        list.push(blankRel(key === 'halfSiblings' ? { side: '' } : (key === 'matAU' || key === 'patAU') ? { relation: '' } : null));
+        UI.open['s1.' + key + '.' + (list.length - 1)] = true; rerender();
+        var nb = document.getElementById('card_' + pid('s1.' + key + '.' + (list.length - 1)) + '_btn'); if (nb) nb.focus();
+        break;
+      }
+      case 'removeRel': {
+        var k = b.getAttribute('data-list'), idx = +b.getAttribute('data-idx');
+        if (window.confirm('Remove this relative?')) {
+          S.s1[k].splice(idx, 1);
+          var newOpen = {}; for (var p in UI.open) if (p.indexOf('s1.' + k + '.') !== 0) newOpen[p] = UI.open[p];
+          UI.open = newOpen; rerender(); var ab = document.getElementById('add_' + k); if (ab) ab.focus();
+        }
+        break;
+      }
+      case 'toggleCard': { var cp = b.getAttribute('data-path'); UI.open[cp] = !UI.open[cp]; rerender(); break; }
+      case 'jump': { var t = document.getElementById(b.getAttribute('data-target')); if (t) { t.scrollIntoView({ block: 'center' }); var tb = t.querySelector('button'); if (tb) tb.focus({ preventScroll: true }); } break; }
+      case 'goto': go(+b.getAttribute('data-step'), b.getAttribute('data-target'), b.getAttribute('data-card')); break;
+      case 'submit': submit(); break;
+      case 'editAfter': S.completed = false; try { window.JFCustomWidget.sendData({ value: '' }); } catch (e) {} go(17); break;
+    }
+  });
+  app.addEventListener('input', function (ev) {
+    var t = ev.target, p = t.getAttribute && t.getAttribute('data-bind');
+    if (!p || t.type === 'checkbox' || t.tagName === 'SELECT') return;
+    setP(S, p, t.value); save();
+  });
+  app.addEventListener('change', function (ev) {
+    var t = ev.target, p = t.getAttribute && t.getAttribute('data-bind');
+    if (!p) return;
+    if (t.type === 'checkbox') { setP(S, p, t.checked); rerender(); }
+    else if (t.tagName === 'SELECT') { setP(S, p, t.value); rerender(); }
+    else if (t.type === 'number') { rerender(); }
+  });
+  window.addEventListener('pagehide', saveNow);
+
+  /* ---------------- Jotform integration ---------------- */
+  if (IN_JOTFORM) {
+    var JF = window.JFCustomWidget;
+    var resize = function () { try { JF.requestFrameResize({ height: Math.ceil(document.documentElement.scrollHeight) + 8 }); } catch (e) {} };
+    if (window.ResizeObserver) new ResizeObserver(resize).observe(document.body); else setInterval(resize, 800);
+    JF.subscribe('ready', function () {
+      if (S.completed && !issues().length && S.confirm1 && S.confirm2) { try { JF.sendData({ value: JSON.stringify(buildPayload()) }); } catch (e) {} }
+      resize();
+    });
+    JF.subscribe('submit', function () {
+      var ok = S.completed && !issues().length && S.confirm1 && S.confirm2;
+      var value = ok ? JSON.stringify(buildPayload()) : '';
+      JF.sendSubmit({ valid: ok, value: value });
+      if (ok) clearSaved();
+    });
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
