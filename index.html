@@ -334,7 +334,9 @@ input:focus,select:focus,textarea:focus{border-color:var(--brand)}
   }
 
   function loadSaved() {
-    try { var raw = window.localStorage.getItem(STORAGE_KEY); if (!raw) return null; var d = JSON.parse(raw); return d && d.v === 1 ? d.state : null; }
+    try { var raw = window.localStorage.getItem(STORAGE_KEY); if (!raw) return null; var d = JSON.parse(raw); if (!d || d.v !== 1) return null;
+      if (d.state && d.state.completed && d.savedAt && Date.now() - Date.parse(d.savedAt) > 7 * 864e5) { window.localStorage.removeItem(STORAGE_KEY); return null; }
+      return d.state; }
     catch (e) { return null; }
   }
   function saveNow() { try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ v: 1, savedAt: new Date().toISOString(), state: S })); } catch (e) {} }
@@ -910,8 +912,9 @@ input:focus,select:focus,textarea:focus{border-color:var(--brand)}
     JF.subscribe('submit', function () {
       var ok = S.completed && !issues().length && S.confirm1 && S.confirm2;
       var value = ok ? JSON.stringify(buildPayload()) : '';
+      // Jotform also fires this on its own "Next" button, so the device copy is not cleared here.
+      // Completed questionnaires are cleared from the device automatically after 7 days (see loadSaved).
       JF.sendSubmit({ valid: ok, value: value });
-      if (ok) clearSaved();
     });
   }
 
